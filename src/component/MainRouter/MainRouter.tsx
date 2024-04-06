@@ -12,12 +12,9 @@ import {createNewEmptyCaracteristicaObject} from "../../models/Caracteristica";
 import CaracteristicaForm from "../CaracteristicaForm/CategoriaForm";
 import InventarioView from "../InventarioView/InventarioView";
 import EmpresaView from "../EmpresaView/EmpresaView";
-import getRole from "../../methods/localStorage/Role/getRole";
 
 
 const MainRouter = () => {
-
-    const role = getRole();
 
     let array = [];
 
@@ -58,7 +55,7 @@ const MainRouter = () => {
             <Box>
                 <Sidebar/>
                 <Content leftMargin={true}>
-                    <EmpresaView />
+                    <EmpresaView/>
                 </Content>
             </Box>
         ),
@@ -75,53 +72,49 @@ const MainRouter = () => {
         ),
     });
 
-    if (role === "ADMIN") {
+    array.push({
+        path: "/empresa/new", element: (
+            <Box>
+                <Sidebar/>
+                <Content leftMargin={true}>
+                    <EmpresaForm empresa={createNewEmptyEmpresaObject()}/>
+                </Content>
+            </Box>
+        ),
+    });
 
-        array.push({
-            path: "/empresa/new", element: (
-                <Box>
-                    <Sidebar/>
-                    <Content leftMargin={true}>
-                        <EmpresaForm empresa={createNewEmptyEmpresaObject()}/>
-                    </Content>
-                </Box>
-            ),
-        });
+    array.push({
+        path: "/producto/new", element: (
+            <Box>
+                <Sidebar/>
+                <Content leftMargin={true}>
+                    <ProductoForm producto={createNewEmptyProductoObject()}/>
+                </Content>
+            </Box>
+        ),
+    });
 
-        array.push({
-            path: "/producto/new", element: (
-                <Box>
-                    <Sidebar/>
-                    <Content leftMargin={true}>
-                        <ProductoForm producto={createNewEmptyProductoObject()}/>
-                    </Content>
-                </Box>
-            ),
-        });
+    array.push({
+        path: "/caracteristica/new", element: (
+            <Box>
+                <Sidebar/>
+                <Content leftMargin={true}>
+                    <CaracteristicaForm caracteristica={createNewEmptyCaracteristicaObject()}/>
+                </Content>
+            </Box>
+        ),
+    });
 
-        array.push({
-            path: "/caracteristica/new", element: (
-                <Box>
-                    <Sidebar/>
-                    <Content leftMargin={true}>
-                        <CaracteristicaForm caracteristica={createNewEmptyCaracteristicaObject()}/>
-                    </Content>
-                </Box>
-            ),
-        });
-
-        array.push({
-            path: "/inventario", element: (
-                <Box>
-                    <Sidebar/>
-                    <Content leftMargin={true}>
-                        <InventarioView/>
-                    </Content>
-                </Box>
-            ),
-        });
-
-    }
+    array.push({
+        path: "/inventario", element: (
+            <Box>
+                <Sidebar/>
+                <Content leftMargin={true}>
+                    <InventarioView/>
+                </Content>
+            </Box>
+        ),
+    });
 
     const router = createBrowserRouter(array);
 
