@@ -1,46 +1,84 @@
-# Getting Started with Create React App
+Frontend Coding Challenge - README
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This frontend application is developed to complement the backend 
+system described in the coding challenge. It is built using modern
+frontend technologies and follows a structured approach with components,
+constants, methods, models, services, and utility functions.
 
-## Available Scripts
+Below is a comprehensive guide to the frontend application:
 
-In the project directory, you can run:
+Empresa (Company) View:
 
-### `npm start`
+    Display information about companies including NIT, name, address, and contact details.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+    Form to add, edit, and delete companies (accessible to administrators only).
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Productos (Products) View:
 
-### `npm test`
+    Display product information such as code, name, characteristics, prices, and associated company.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    Allow administrators to manage products (add, edit, delete).
 
-### `npm run build`
+    Allow external users to view products.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Inicio de Sesión (Login) View:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    Provide a login form for users to authenticate.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Inventario (Inventory) View:
 
-### `npm run eject`
+    Display inventory information.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+    Allow administrators to download PDFs of inventory and send them via AWS API.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+User Management:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+    Authentication and authorization mechanisms to distinguish between administrators and external users.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Form Handling:
 
-## Learn More
+    Form validation and submission methods.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Project Structure:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    components: Reusable UI components.
+
+    constants: Constants used across the application.
+
+    methods: Utility methods for common tasks.
+
+    models: Data models for frontend entities.
+
+    services: Handles communication with the backend API.
+
+    utils: Utility functions for various purposes.
+
+    .env: Environment configuration file for sensitive data or environment-specific settings.
+
+Technologies Used:
+
+    React: JavaScript library for building user interfaces.
+
+    axios: HTTP client for making requests to the backend API.
+
+Setup Instructions:
+
+    Clone this repository.
+
+    Install dependencies using npm install or yarn install.
+
+    Configure environment variables in the .env file, use .env.example as a guide.
+
+    Run the application using npm start or yarn start.
+
+    Access the application in your browser at the specified URL.
+
+Deployment:
+
+    The frontend application can be deployed on any hosting service compatible with React applications. Ensure proper configurations are set for deployment, including environment variables and backend API endpoint configurations.
+
+Developer:
+    
+    Juan Pablo Carrillo Acero
+
+Feel free to reach out for any questions or clarifications regarding the application setup or functionality. 

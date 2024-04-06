@@ -49,16 +49,13 @@ const InventarioView = () => {
     const loadEmpresas = async () => {
 
         try {
-            updateLoading(true);
 
             const response = await backendService("GET", "/secure/empresas/all", null, true);
             const options = mapEmpresasToOption(response);
 
             setEmpresas(options);
-            updateLoading(false);
         } catch (e: any) {
             notify(e.message, "error");
-            updateLoading(false);
         }
 
     }
@@ -71,7 +68,6 @@ const InventarioView = () => {
             setShowEmpresa(true);
         } catch (e: any) {
             notify(e.message, "error");
-            updateLoading(false);
         }
 
     }
@@ -84,7 +80,6 @@ const InventarioView = () => {
             setSelectedEmpresa(null);
         } catch (e: any) {
             notify(e.message, "error");
-            updateLoading(false);
         }
 
     }
@@ -156,7 +151,7 @@ const InventarioView = () => {
                     onClose={handleCloseModal}
                 >
                     <Box sx={modalStyle}>
-                        <ProductoForm producto={selectedProduct} update={updateLoading}/>
+                        <ProductoForm producto={selectedProduct}/>
                     </Box>
                 </Modal>
             )
@@ -165,15 +160,12 @@ const InventarioView = () => {
         const loadProducts = async () => {
 
             try {
-                updateLoading(true);
 
                 const response = await backendService("GET", `/secure/productos/byEmpresa/${selectedEmpresa.value}`, null, true);
 
                 setRows(response);
-                updateLoading(false);
             } catch (e: any) {
                 notify(e.message, "error");
-                updateLoading(false);
             }
 
         }
@@ -214,7 +206,6 @@ const InventarioView = () => {
         const handleSendEmail = async () => {
 
             try {
-                updateLoading(true);
 
                 const body = {
                     to: email,
@@ -224,11 +215,9 @@ const InventarioView = () => {
                 const response = await backendService("POST", "/secure/emails/send", body, true);
 
                 notify(response, "success");
-                updateLoading(false);
                 setShowEmailModal(false);
             } catch (e: any) {
                 notify(e.message, "error");
-                updateLoading(false);
             }
 
         }
